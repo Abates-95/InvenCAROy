@@ -16,7 +16,7 @@ const columns: GridColDef[] = [
 
 ];
 
-export default function VehicleDataTable() {
+function VehicleDataTable() {
   const {vehicleData, getData} = useGetData();
   const [ selectionModel, setSelectionModel] = useState<string[]>([])
   const navigate = useNavigate()
@@ -26,9 +26,8 @@ export default function VehicleDataTable() {
     getData();
     console.log(`selection model: ${selectionModel}`);
     setTimeout( () => { navigate('/') }), 1000   
-}
+};
  
-
   return (
     <div>
       <div style={{ height: 300, width: '100%' }}>
@@ -48,5 +47,7 @@ export default function VehicleDataTable() {
       <VehicleForm id={selectionModel} />
     </div>
   );
-}
+};
+
+export default VehicleDataTable
 

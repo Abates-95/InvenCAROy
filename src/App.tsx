@@ -4,7 +4,6 @@ import { store } from './redux/store'
 import routes from './config/routes'
 import Navbar from './components/Navbar'
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -23,7 +22,7 @@ function App() {
         </Routes>
       </Provider>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App

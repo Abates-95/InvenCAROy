@@ -12,7 +12,7 @@ function Bg() {
       }}
       
     ></div>
-  )
-}
+  );
+};
 
 export default Bg

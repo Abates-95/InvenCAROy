@@ -7,11 +7,12 @@ import { useNavigate } from 'react-router';
 
 interface VehicleFormProps {
   id?: string[];
-}
+};
 
 interface FilteredData {
   [key: string]: any;
-}
+};
+
 const VehicleForm = (props: VehicleFormProps) => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
@@ -50,8 +51,8 @@ const VehicleForm = (props: VehicleFormProps) => {
         setTimeout(() => {
             navigate('/');
           }, 2000);
-    }
-}
+    };
+};
   
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center items-center h-screen -mt-36 '>

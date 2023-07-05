@@ -10,11 +10,11 @@ function Navbar() {
         console.log('dropDown')
         setIsVisible(!isVisible)
         console.log(isVisible);
-    }
+    };
 
     const clicked = () => {
         setIsVisible(false)
-    }
+    };
 
   return (
     <nav className='flex items-center justify-between flex-wrap bg-red-700 p-1'>
@@ -63,7 +63,7 @@ function Navbar() {
         <></>
         )}
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar

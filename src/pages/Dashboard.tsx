@@ -12,7 +12,7 @@ function Dashboard() {
     <VehicleDataTable />
     <Footer/>
     </>
-  )
-}
+  );
+};
 
 export default Dashboard

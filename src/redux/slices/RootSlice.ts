@@ -19,7 +19,7 @@ const rootSlice = createSlice({
         chooseClassification: (state, action) => 
             { state.classification = action.payload },
     }
-})
+});
 
 export const reducer = rootSlice.reducer
 export const {
