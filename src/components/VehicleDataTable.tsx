@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import VehicleForm from './VehicleForm';
 import { useGetData } from '../my_hook/GetData';
+import { useState } from "react";
+import { server_calls } from "../api/backend";
+import { useNavigate } from "react-router-dom";
 
 const columns: GridColDef[] = [
   { field: 'make', headerName: 'Make', width: 100 },
@@ -15,29 +17,35 @@ const columns: GridColDef[] = [
 ];
 
 export default function VehicleDataTable() {
-  const {vehicleData} = useGetData();
-  const [rows, setRows] = useState<GridRowsProp>([
-    
-  ]);
+  const {vehicleData, getData} = useGetData();
+  const [ selectionModel, setSelectionModel] = useState<string[]>([])
+  const navigate = useNavigate()
 
-  const handleSubmit = (make: string, model: string, year: string, price: string) => {
-    const newRow = {
-      id: rows.length + 1,
-      col1: make,
-      col2: model,
-      col3: year,
-      col4: price,
-    };
-
-    setRows([...rows, newRow]);
-  };
+  const deleteData = () => {
+    server_calls.delete(selectionModel[0]);
+    getData();
+    console.log(`selection model: ${selectionModel}`);
+    setTimeout( () => { navigate('/') }), 1000   
+}
+ 
 
   return (
     <div>
       <div style={{ height: 300, width: '100%' }}>
-        <DataGrid rows={vehicleData} columns={columns} />
+        <DataGrid rows={vehicleData} columns={columns} 
+        checkboxSelection={true}
+        onRowSelectionModelChange={(item:any) => {
+            setSelectionModel(item)
+        }}
+        />
       </div>
-      <VehicleForm onSubmit={handleSubmit} />
+      <button 
+      onClick={deleteData}
+      className='animate-pulse text-2xl max-w-208px w-6/6 border-4 text-red-700 border-red-700 p-3 m-5
+                          bg-gray-400 hover:border-gray-400 hover:bg-red-700 hover:text-gray-500'>
+        Delete Vehicle
+      </button>
+      <VehicleForm id={selectionModel} />
     </div>
   );
 }

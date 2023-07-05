@@ -1,6 +1,7 @@
 import Info from "../components/Info";
 import Background from '../assets/images/homebg.svg';
 import Title from "../components/Title";
+import Footer from "../components/Footer";
 
 function About() {
   return (
@@ -14,8 +15,8 @@ function About() {
     className="text-red-700 mt-10 p-3 bg-gray-600 bg-opacity-50 rounded shadow-2xl"
     />
     <Info />
+    <Footer/>
     </div>
-    
     </>
   )
 }

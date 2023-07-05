@@ -1,17 +1,16 @@
 import VehicleDataTable from '../components/VehicleDataTable'
 import Title from '../components/Title'
+import Footer from '../components/Footer'
 
 function Dashboard() {
   return (
     <>
     <Title
-    titleText="Welcome to your future Dashboard, we are currently under construction. 
-               For now you can view our inventory! 
-               The ability to Create, Retrieve, Update and Delete will be 
-               functional shortly!"
-    className='flex flex-row justify-center p-5 m-6 text-xl bg-gray-600 rounded shadow-xl text-yellow-400' 
+    titleText="Welcome to your dashboard!  Here you can CREATE, UPDATE, or DELETE any vehicles from your inventory!"
+    className="text-4xl mb-10 border-b-8 border-t-8 border-double border-red-700 p-3 rounded mt-5"
     />
     <VehicleDataTable />
+    <Footer/>
     </>
   )
 }
